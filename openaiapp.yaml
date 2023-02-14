@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openaiapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: openaiapp
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5 
+  template:
+    metadata:
+      labels:
+        app: openaiapp
+    spec:
+      containers:
+      - name: openaiapp
+        image: openaiapp.azurecr.io/openaiapp:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: openaiapp
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: openaiapp
