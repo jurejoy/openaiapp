@@ -35,10 +35,10 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_CONTAINER_REGISTRY: "openapiapp"
-  CONTAINER_NAME: "openapiapp"
-  RESOURCE_GROUP: "openapiapp"
-  CLUSTER_NAME: "openapiapp"
+  AZURE_CONTAINER_REGISTRY: "openaiapp"
+  CONTAINER_NAME: "openaiapp"
+  RESOURCE_GROUP: "openaiapp"
+  CLUSTER_NAME: "openaiapp"
   DEPLOYMENT_MANIFEST_PATH: "your-deployment-manifest-path"
 
 jobs:
