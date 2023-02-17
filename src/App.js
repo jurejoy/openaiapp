@@ -23,7 +23,7 @@ export default function Openaiapp() {
   const getOpenaiResponse = () => { openai.createCompletion({
     model: "text-davinci-003",
     prompt: inputText,
-    max_tokens: 512,
+    max_tokens: 1024,
     temperature: 0.7,
   }).then((response) => {
     console.log(response.data.choices[0].text)
