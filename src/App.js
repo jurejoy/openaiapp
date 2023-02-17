@@ -8,10 +8,7 @@ import {
     Icon
 } from 'semantic-ui-react';
 
-
-
-
-
+const secrets = require('./secrets');
 
 export default function Openaiapp() {
 
@@ -20,13 +17,13 @@ export default function Openaiapp() {
 
   const { Configuration, OpenAIApi } = require("openai");
   const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: secrets.secretKey,
   });
   const openai = new OpenAIApi(configuration);
   const getOpenaiResponse = () => { openai.createCompletion({
     model: "text-davinci-003",
     prompt: inputText,
-    max_tokens: 256,
+    max_tokens: 512,
     temperature: 0.7,
   }).then((response) => {
     console.log(response.data.choices[0].text)
